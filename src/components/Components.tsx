@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../pages/style/GlobalStyles.css';
 import './components.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+
+library.add(fab);
+
 
 export const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -16,7 +23,6 @@ export const Header: React.FC = () => {
       <nav className="nav-container">
         <a href="/" className="logo">SORRISO IDEAL.</a>
         <ul className="nav-links">
-          <li><a href="/">Experiência</a></li>
           <li><a href="/sobre">Clínica</a></li>
           <li><a href="/servicos">Soluções</a></li>
           <li><a href="/contato">Contato</a></li>
@@ -31,25 +37,63 @@ export const Header: React.FC = () => {
 export const Footer: React.FC = () => (
   <footer className="footer">
     <div className="footer-container">
+      
       <div>
-        <h2 className="logo" style={{ color: 'white', marginBottom: '1.5rem', display: 'block' }}>SORRISO IDEAL.</h2>
-        <p style={{ opacity: 0.6 }}>Odontologia de alta performance e luxo digital.</p>
+        <h2 className="logo" style={{ color: 'white', marginBottom: '1.5rem', display: 'block' }}>
+          SORRISO IDEAL.
+        </h2>
+        <p style={{ opacity: 0.6 }}>
+          A referência em odontologia de luxo e reabilitação oral avançada. Transformando vidas através da ciência e arte.
+        </p>
       </div>
+
+      <div className='icons'>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" >
+          <FontAwesomeIcon icon={["fab", "instagram"]} className='icon'/>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className='icon'>
+          <FontAwesomeIcon icon={["fab", "linkedin"]} className='icon'/>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className='icon'>
+          <FontAwesomeIcon icon={["fab", "facebook"]} className='icon'/>
+        </a>
+      </div>
+
       <div>
         <h4>Navegação</h4>
-        <ul style={{ listStyle: 'none', opacity: 0.7, marginTop: '1rem' }}>
-          <li><a href="/sobre" style={{ color: 'white', textDecoration: 'none' }}>Sobre</a></li>
-          <li><a href="/servicos" style={{ color: 'white', textDecoration: 'none' }}>Serviços</a></li>
+        <ul style={{ listStyle: 'none', opacity: 0.7, marginTop: '1rem', padding: 0 }}>
+          <li>
+            <Link to="/sobre" style={{ color: 'white', textDecoration: 'none' }}>
+              Sobre
+            </Link>
+          </li>
+          <li>
+            <Link to="/servicos" style={{ color: 'white', textDecoration: 'none' }}>
+              Serviços
+            </Link>
+          </li>
         </ul>
       </div>
+
+      <div>
+        <h4>Legal</h4>
+        <ul style={{ listStyle: 'none', opacity: 0.7, padding: 0 }}>
+          <li><a href="/privacidade" style={{ color: 'white', textDecoration: 'none' }}>Privacidade</a></li>
+          <li><a href="/termos" style={{ color: 'white', textDecoration: 'none' }}>Termos de Uso</a></li>
+          <li>CRO: 12345-CE</li>
+        </ul>
+      </div>
+
       <div>
         <h4>Contato</h4>
-        <p style={{ opacity: 0.7, marginTop: '1rem' }}>(11) 4002-8922</p>
-        <p style={{ opacity: 0.7 }}>São Paulo, SP</p>
+        <p style={{ opacity: 0.7, marginTop: '1rem' }}>(85) 4002-8922</p>
+        <p style={{ opacity: 0.7 }}>Fortaleza, CE</p>
       </div>
+
     </div>
+
     <div style={{ textAlign: 'center', marginTop: '60px', opacity: 0.3, fontSize: '0.8rem' }}>
-      &copy; 2026 Sorriso Ideal. Todos os direitos reservados.
+      © 2026 Sorriso Ideal. Made by 15Miles. Todos os direitos reservados.
     </div>
   </footer>
 );
