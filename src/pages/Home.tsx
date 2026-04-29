@@ -43,21 +43,21 @@ const Home: React.FC = () => {
           <div className="solutions-grid">
             <Reveal>
               <div className="solution-card">
-                <div className="icon-box"><i className="fas fa-magic"></i></div>
+                <div className="icon-box">🦷</div>
                 <h3>Estética de Elite</h3>
                 <p>Lentes de contato e facetas que corrigem imperfeições de forma natural e duradoura.</p>
               </div>
             </Reveal>
             <Reveal>
               <div className="solution-card">
-                <div className="icon-box"><i className="fas fa-microscope"></i></div>
+                <div className="icon-box">🔬</div>
                 <h3>Implantes Digitais</h3>
                 <p>Recupere a mastigação sem cortes desnecessários, usando guias cirúrgicos 3D de alta precisão.</p>
               </div>
             </Reveal>
             <Reveal>
               <div className="solution-card">
-                <div className="icon-box"><i className="fas fa-shield-alt"></i></div>
+                <div className="icon-box">🛡️</div>
                 <h3>Prevenção Inteligente</h3>
                 <p>Protocolos exclusivos para garantir que você nunca mais tenha problemas urgentes com sua saúde bucal.</p>
               </div>
