@@ -67,10 +67,37 @@ body{
     flex-wrap: wrap;
 }
 
+.btn-premium {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.btn-premium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: black;
+  z-index: -1;
+  clip-path: ellipse(0% 0% at 50% 100%);
+  transition: clip-path 1s ease;
+}
+
+.btn-premium:hover::before {
+  clip-path: ellipse(150% 150% at 50% 100%);
+}
+
+.btn-premium:hover {
+  color: white;
+}
+
 .btn-outline {
-    background: transparent !important;
-    color: var(--primary) !important;
-    border: 1px solid var(--primary) !important;
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
 }
 
 /* Solutions Section */
@@ -165,8 +192,8 @@ body{
 }
 
 .btn-white {
-    background: white !important;
-    color: var(--primary) !important;
+    background: white;
+    color: var(--primary);
 }
 
 .cta-stats {
