@@ -1,41 +1,127 @@
 import React from 'react';
 import { Header, Footer, Reveal } from '../components/Components';
-import './style/GlobalStyles.css';
+import './style/Servicos.css';
 
 const Servicos: React.FC = () => {
-  const servicos = [
-    { title: 'Lentes de Contato', desc: 'Transformação estética total com mínimo desgaste.', icon: 'fa-teeth-open' },
-    { title: 'Implantes 24h', desc: 'Carga imediata para quem não pode esperar.', icon: 'fa-vials' },
-    { title: 'Invisalign®', desc: 'Alinhamento invisível e confortável.', icon: 'fa-align-left' },
-    { title: 'Harmonização', desc: 'Equilíbrio perfeito entre sorriso e face.', icon: 'fa-sparkles' },
-    { title: 'Reabilitação Oral', desc: 'Soluções complexas para casos multidisciplinares.', icon: 'fa-smile-beam' },
-    { title: 'Check-up Digital', desc: 'Prevenção de luxo com câmeras HD.', icon: 'fa-shield-virus' }
-  ];
-
   return (
     <>
       <Header />
-      <main style={{ paddingTop: '100px' }}>
-        <section className="section-container">
-          <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-              <span className="badge">Nossas Soluções</span>
-              <h2 style={{ fontSize: '3.5rem', color: 'var(--primary)' }}>Tratamentos de Alta Performance</h2>
-            </div>
-          </Reveal>
+      <main className="servicos-main">
 
-          <div className="grid-solutions">
-            {servicos.map((s, i) => (
-              <Reveal key={i}>
-                <div className="card-lux">
-                  <div className="icon-wrapper"><i className={`fas ${s.icon}`}></i></div>
-                  <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
-                </div>
-              </Reveal>
-            ))}
+        <section className="hero servicos-hero">
+          <div className="hero-content">
+            <Reveal>
+              <span className="hero-badge">Nosso Arsenal Tecnológico</span>
+              <h1 className="servicos-title">Soluções que transformam vidas.</h1>
+              <p>
+                Não fazemos apenas procedimentos. Criamos caminhos para você recuperar sua autoestima e saúde através da tecnologia de ponta.
+              </p>
+            </Reveal>
           </div>
         </section>
+
+        <section className="servicos-section">
+          <div className="solutions-grid">
+
+            <Reveal>
+              <div className="solution-card">
+                <div className="icon-box"><i className="fas fa-teeth-open"></i></div>
+                <h3>Lentes de Contato Dental</h3>
+                <p className="card-text">
+                  A solução definitiva para dentes manchados, desalinhados ou com formatos indesejados. Um sorriso de estrela em poucas sessões.
+                </p>
+                <ul className="card-list">
+                  <li><i className="fas fa-check"></i> Mínimo desgaste</li>
+                  <li><i className="fas fa-check"></i> Planejamento Digital DSD</li>
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="solution-card">
+                <div className="icon-box"><i className="fas fa-vials"></i></div>
+                <h3>Implantes em 24h</h3>
+                <p className="card-text">
+                  Carga imediata para quem não pode esperar. Recupere sua mastigação e estética no mesmo dia com segurança total.
+                </p>
+                <ul className="card-list">
+                  <li><i className="fas fa-check"></i> Cirurgia Guiada sem cortes</li>
+                  <li><i className="fas fa-check"></i> Sedação Consciente</li>
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="solution-card">
+                <div className="icon-box"><i className="fas fa-align-left"></i></div>
+                <h3>Invisalign® & Alinhadores</h3>
+                <p className="card-text">
+                  Alinhe seus dentes com discrição absoluta. O fim dos aparelhos metálicos e do desconforto constante.
+                </p>
+                <ul className="card-list">
+                  <li><i className="fas fa-check"></i> Removíveis e higiênicos</li>
+                  <li><i className="fas fa-check"></i> Resultados 2x mais rápidos</li>
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="solution-card">
+                <div className="icon-box"><i className="fas fa-smile-beam"></i></div>
+                <h3>Reabilitação Oral</h3>
+                <p className="card-text">
+                  Para casos complexos que exigem uma visão multidisciplinar. Devolvemos a harmonia funcional e estética da sua boca.
+                </p>
+                <ul className="card-list">
+                  <li><i className="fas fa-check"></i> Equipe de especialistas</li>
+                  <li><i className="fas fa-check"></i> Foco em longevidade</li>
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="solution-card">
+                <div className="icon-box"><i className="fas fa-sparkles"></i></div>
+                <h3>Harmonização Orofacial</h3>
+                <p className="card-text">
+                  O equilíbrio perfeito entre seu sorriso e sua face. Botox, preenchimento e bioestimuladores de colágeno.
+                </p>
+                <ul className="card-list">
+                  <li><i className="fas fa-check"></i> Naturalidade acima de tudo</li>
+                  <li><i className="fas fa-check"></i> Procedimentos minimamente invasivos</li>
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="solution-card">
+                <div className="icon-box"><i className="fas fa-shield-virus"></i></div>
+                <h3>Check-up Digital</h3>
+                <p className="card-text">
+                  Prevenção de luxo. Identificamos problemas antes mesmo que eles causem dor ou exijam tratamentos caros.
+                </p>
+                <ul className="card-list">
+                  <li><i className="fas fa-check"></i> Câmera intraoral HD</li>
+                  <li><i className="fas fa-check"></i> Laudo detalhado</li>
+                </ul>
+              </div>
+            </Reveal>
+
+          </div>
+        </section>
+
+        <section className="servicos-cta">
+          <Reveal>
+            <h2>Não sabe por onde começar?</h2>
+            <p>
+              Agende uma consulta de avaliação global. Vamos entender seus objetivos e desenhar o melhor caminho juntos.
+            </p>
+            <a href="/agendamento" className="btn-premium btn-white">
+              Agendar Avaliação Global
+            </a>
+          </Reveal>
+        </section>
+
       </main>
       <Footer />
     </>

@@ -1,0 +1,118 @@
+
+
+.servicos-hero::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(44,116,179,0.15), transparent 70%);
+  top: -100px;
+  right: -100px;
+  filter: blur(40px);
+}
+
+.servicos-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  letter-spacing: -1px;
+}
+
+.servicos-section {
+  padding: 0 7vw;
+}
+
+.card-text {
+  margin-bottom: 1.5rem;
+  color: var(--text-sub);
+}
+
+.card-list {
+  list-style: none;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.card-list li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-list i {
+  color: var(--accent);
+}
+
+.solution-card {
+  background: white;
+  padding: 3.5rem;
+  border-radius: 30px;
+  box-shadow: var(--shadow-lux);
+  transition: var(--transition);
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.solution-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(44,116,179,0.08), transparent 70%);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.solution-card:hover::before {
+  opacity: 1;
+}
+
+.solution-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: var(--accent);
+}
+
+.servicos-cta {
+  background: linear-gradient(135deg, var(--primary), #0f3a6b);
+  color: white;
+  text-align: center;
+  border-radius: 50px;
+  margin: 0 5% 100px;
+  padding: 100px 5%;
+  box-shadow: 0 30px 60px rgba(10,38,71,0.25);
+}
+
+.servicos-cta h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.servicos-cta p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.btn-white {
+  background: white;
+  color: var(--primary);
+}
+
+@media (max-width: 1024px) {
+  .servicos-hero {
+    padding: 6vh 5%;
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicos-cta {
+    border-radius: 30px;
+    padding: 70px 5%;
+  }
+
+  .servicos-cta h2 {
+    font-size: 2.2rem;
+  }
+}
