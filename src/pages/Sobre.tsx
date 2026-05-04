@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Footer, Reveal } from '../components/Components';
+import { Header, Footer } from '../components/Components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGem, faBolt, faHeart } from '@fortawesome/free-solid-svg-icons'
 import './style/About.css';
