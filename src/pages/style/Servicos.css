@@ -79,6 +79,26 @@
   margin: 0 5% 100px;
   padding: 100px 5%;
   box-shadow: 0 30px 60px rgba(10,38,71,0.25);
+  
+  /* Premium Initial State */
+  scale: 0.8;
+  opacity: 0;
+  transform: translateY(100px);
+  filter: blur(10px);
+  
+  /* Luxury Timing */
+  transition: 
+    scale 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 1s ease-out,
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1.2s ease-out;
+}
+
+.servicos-cta.scrolled {
+  scale: 1;
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }
 
 .servicos-cta h2 {

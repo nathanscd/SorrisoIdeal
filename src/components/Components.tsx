@@ -99,20 +99,31 @@ export const Footer: React.FC = () => (
 );
 
 // --- REVEAL WRAPPER (Para Animações) ---
-export const Reveal: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const Reveal: React.FC<{ children: React.ReactNode, delay?: number }> = ({ children, delay = 0 }) => {
   const [isVisible, setVisible] = React.useState(false);
   const domRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => setVisible(entry.isIntersecting));
-    });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+        } else {
+          setVisible(false);
+        }
+      });
+    }, { threshold: 0.1 });
+    
     if (domRef.current) observer.observe(domRef.current);
     return () => { if (domRef.current) observer.unobserve(domRef.current); };
   }, []);
 
   return (
-    <div className={`reveal ${isVisible ? 'visible' : ''}`} ref={domRef}>
+    <div 
+      className={`reveal ${isVisible ? 'visible' : ''}`} 
+      ref={domRef}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {children}
     </div>
   );

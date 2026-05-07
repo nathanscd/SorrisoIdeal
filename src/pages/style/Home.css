@@ -194,6 +194,27 @@ body{
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 5rem;
+    /* Premium Initial State */
+    scale: 0.8;
+    opacity: 0;
+    transform: translateY(100px);
+    filter: blur(10px);
+    
+    /* Luxury Timing */
+    transition: 
+        scale 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 1s ease-out,
+        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.2s ease-out;
+    
+    overflow: hidden;
+}
+
+.cta-container.scrolled{
+    scale: 1;
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
 }
 
 .cta-content {

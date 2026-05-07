@@ -1,8 +1,20 @@
-import React from 'react';
 import { Header, Footer, Reveal } from '../components/Components';
+import { useState, useEffect, useRef } from 'react';
 import './style/Servicos.css';
 
 const Servicos: React.FC = () => {
+  const [ctaScrolled, setCtaScrolled] = useState(false);
+  const ctaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setCtaScrolled(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    if (ctaRef.current) observer.observe(ctaRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <Header />
@@ -23,7 +35,7 @@ const Servicos: React.FC = () => {
         <section className="servicos-section">
           <div className="solutions-grid">
 
-            <Reveal>
+            <Reveal delay={100}>
               <div className="solution-card">
                 <div className="icon-box"><i className="fas fa-teeth-open"></i></div>
                 <h3>Lentes de Contato Dental</h3>
@@ -37,7 +49,7 @@ const Servicos: React.FC = () => {
               </div>
             </Reveal>
 
-            <Reveal>
+            <Reveal delay={200}>
               <div className="solution-card">
                 <div className="icon-box"><i className="fas fa-vials"></i></div>
                 <h3>Implantes em 24h</h3>
@@ -51,7 +63,7 @@ const Servicos: React.FC = () => {
               </div>
             </Reveal>
 
-            <Reveal>
+            <Reveal delay={300}>
               <div className="solution-card">
                 <div className="icon-box"><i className="fas fa-align-left"></i></div>
                 <h3>Invisalign® & Alinhadores</h3>
@@ -65,7 +77,7 @@ const Servicos: React.FC = () => {
               </div>
             </Reveal>
 
-            <Reveal>
+            <Reveal delay={400}>
               <div className="solution-card">
                 <div className="icon-box"><i className="fas fa-smile-beam"></i></div>
                 <h3>Reabilitação Oral</h3>
@@ -79,7 +91,7 @@ const Servicos: React.FC = () => {
               </div>
             </Reveal>
 
-            <Reveal>
+            <Reveal delay={500}>
               <div className="solution-card">
                 <div className="icon-box"><i className="fas fa-sparkles"></i></div>
                 <h3>Harmonização Orofacial</h3>
@@ -93,7 +105,7 @@ const Servicos: React.FC = () => {
               </div>
             </Reveal>
 
-            <Reveal>
+            <Reveal delay={600}>
               <div className="solution-card">
                 <div className="icon-box"><i className="fas fa-shield-virus"></i></div>
                 <h3>Check-up Digital</h3>
@@ -110,7 +122,7 @@ const Servicos: React.FC = () => {
           </div>
         </section>
 
-        <section className="servicos-cta">
+        <section className={`servicos-cta ${ctaScrolled ? 'scrolled' : ''}`} ref={ctaRef}>
           <Reveal>
             <h2>Não sabe por onde começar?</h2>
             <p>

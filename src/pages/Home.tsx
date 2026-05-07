@@ -1,15 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Header, Footer, Reveal } from '../components/Components';
 import './style/Home.css';
 import './style/GlobalStyles.css';
 
 const Home: React.FC = () => {
     const [heroScrolled, setHeroScrolled] = useState(false);
+    const [ctaScrolled, setCtaScrolled] = useState(false);
+    const ctaRef = useRef<HTMLDivElement>(null);
   
     useEffect(() => {
       const handleScroll = () => setHeroScrolled(window.scrollY > 50);
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => setCtaScrolled(entry.isIntersecting),
+        { threshold: 0.1 }
+      );
+      if (ctaRef.current) observer.observe(ctaRef.current);
+      return () => observer.disconnect();
     }, []);
 
   return (
@@ -73,8 +84,8 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="cta-section">
-          <div className="cta-container">
+        <section className="cta-section" ref={ctaRef}>
+          <div className={ctaScrolled ? 'cta-container scrolled' : 'cta-container'}>
             <div className='cta-content'>
               <Reveal>
                 <h2>Pronto para sua melhor versão?</h2>
@@ -87,24 +98,32 @@ const Home: React.FC = () => {
               </Reveal>
             </div>
             
-            <Reveal >
-              <div className="stat-item">
-                <h4>12k+</h4>
-                <p>Sorrisos Transformados</p>
-              </div>
-              <div className="stat-item">
-                <h4>15+</h4>
-                <p>Anos de Excelência</p>
-              </div>
-              <div className="stat-item">
-                <h4>100%</h4>
-                <p>Tecnologia Digital</p>
-              </div>
-              <div className="stat-item">
-                <h4>5★</h4>
-                <p>Avaliação no Google</p>
-              </div>
-            </Reveal>
+            <div className="cta-stats">
+              <Reveal delay={100}>
+                <div className="stat-item">
+                  <h4>12k+</h4>
+                  <p>Sorrisos Transformados</p>
+                </div>
+              </Reveal>
+              <Reveal delay={200}>
+                <div className="stat-item">
+                  <h4>15+</h4>
+                  <p>Anos de Excelência</p>
+                </div>
+              </Reveal>
+              <Reveal delay={300}>
+                <div className="stat-item">
+                  <h4>100%</h4>
+                  <p>Tecnologia Digital</p>
+                </div>
+              </Reveal>
+              <Reveal delay={400}>
+                <div className="stat-item">
+                  <h4>5★</h4>
+                  <p>Avaliação no Google</p>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </section>
       </main>
