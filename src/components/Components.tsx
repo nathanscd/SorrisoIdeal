@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
           <li><a href="/servicos">Soluções</a></li>
           <li><a href="/contato">Contato</a></li>
         </ul>
-        <a href="/agendamento" className="btn-premium">Reservar Horário</a>
+        <a href="/agendamento" className="btn-premium" id='btn-nav'>Reservar Horário</a>
       </nav>
     </header>
   );

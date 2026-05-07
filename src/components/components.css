@@ -6,7 +6,7 @@
   left: auto;
   width: 100%;
   z-index: 1000;
-  padding: 1.5rem 5%;
+  padding: 1rem 5%;
   transition: var(--transition);
 }
 
@@ -14,7 +14,7 @@
   background: var(--glass);
   backdrop-filter: blur(15px);
   --webkit-backdrop-filter: blur(15px);
-  padding: 1rem 5%;
+  padding: 0.4rem 5%;
   box-shadow: var(--shadow-lux);
 }
 
@@ -110,6 +110,11 @@
   color: rgb(238, 238, 238);
   transition: all 0.3s ease;
 }
+
+#btn-nav{
+  padding: 0.6rem 1.3rem;
+}
+
 .icon:hover {
   color: var(--accent);
   transform: scale(1.1);

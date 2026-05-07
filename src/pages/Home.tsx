@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header, Footer, Reveal } from '../components/Components';
 import './style/Home.css';
 import './style/GlobalStyles.css';
 
 const Home: React.FC = () => {
+    const [heroScrolled, setHeroScrolled] = useState(false);
+  
+    useEffect(() => {
+      const handleScroll = () => setHeroScrolled(window.scrollY > 50);
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
   return (
     <div className="home-wrapper">
       <Header />
 
       <main>
         <section className="hero">
-          <Reveal>
-            <div className="hero-content">
+          <Reveal>  
+            <div className={heroScrolled ? 'hero-content scrolled' : 'hero-content'}>
               <span className="hero-badge">Tecnologia & Bem-estar</span>
               <h1>Sua confiança de volta em cada sorriso.</h1>
               <p>
